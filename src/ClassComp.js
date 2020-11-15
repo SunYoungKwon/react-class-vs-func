@@ -34,6 +34,11 @@ export default class ClassComp extends React.Component {
     console.log("%cclass => componentDidUpdate", logTextColor)
   }
 
+  // 컴포넌트가 삭제되기 직전 호출
+  componentWillUnmount() {
+    console.log("%cclass => componentWillUnmount", logTextColor)
+  }
+
   render() {
     console.log("%cclass => render", logTextColor)
 
