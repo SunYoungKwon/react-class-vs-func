@@ -8,33 +8,38 @@ export default function FuncComp(props) {
 
   useEffect(
     function () {
-      console.log("%cfunction => useEffect (componentDidMount)", logTextColor)
+      console.log("%cfunction => useEffect number (componentDidMount & componentDidUpdate)", logTextColor)
       document.title = number
 
       return function () {
-        console.log("%cfunction => useEffect return (componentDidMount)", logTextColor)
+        console.log(
+          "%cfunction => useEffect number return (componentDidMount, componentDidUpdate & componentWillUnmount)",
+          logTextColor
+        )
       }
     },
     [number]
   )
 
-  // 컴포넌트가 생성, 업데이트된 직후 호출
+  // 컴포넌트가 생성, 업데이트된 이후 호출
   // side effect(부가적인 작용)
   useEffect(
     function () {
       console.log("%cfunction => useEffect _date (componentDidMount & componentDidUpdate)", logTextColor)
       document.title = _date
 
-      // 기존 컴포넌트를 지우고 (새로 그리기 전에) 호출
       // cleanup
       return function () {
-        console.log("%cfunction => useEffect _date return (componentDidMount & componentDidUpdate)", logTextColor)
+        console.log(
+          "%cfunction => useEffect _date return (componentDidMount, componentDidUpdate & componentWillUnmount)",
+          logTextColor
+        )
       }
     },
     [_date]
   )
 
-  // 두 번째 배열안의 인자들의 상태가 바뀌어야만 첫 번째 인자인 콜백함수 호출
+  // 두 번째 배열안의 인자들의 상태가 바뀌어야 첫 번째 인자인 콜백함수 호출
   // 빈 배열 전달 시 최초 1회만 실행되고 그 이후에는 실행되지 않음
   useEffect(function () {
     console.log("%cfunction => useEffect (componentDidMount)", logTextColor)

@@ -1,6 +1,6 @@
 import React from "react"
 
-const logTextColor = "color: red"
+const logTextColor = "color: pink"
 
 export default class ClassComp extends React.Component {
   state = {
